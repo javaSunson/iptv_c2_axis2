@@ -343,3 +343,5 @@ com.hmwl.c2service.iptv.ExecCmdResponse 或者回调的Response中看一下，�
 demo资源分享(免费好了，就不传csdn资源了，大家搬运请注明出处，且不要任何形式收费哦):
 
 [github](https://github.com/javaSunson/iptv_c2_axis2) | [gitee(推荐)](https://gitee.com/sun577586587/iptv_c2_axis2)
+
+博客原文: https://blog.csdn.net/qq_26834611/article/details/132049653
