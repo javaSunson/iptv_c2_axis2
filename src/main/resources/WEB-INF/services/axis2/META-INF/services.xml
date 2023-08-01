@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.7.9  Built on : Nov 16, 2018 (12:05:37 GMT) -->
+<serviceGroup>
+    <service name="ctms">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.hmwl.c2service.iptv.CSPRequestServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.hmwl.c2service.iptv.CSPRequestServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">false</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="ExecCmd" mep="http://www.w3.org/ns/wsdl/in-out" namespace="iptv">
+            <actionMapping>iptv/CSPRequest/ExecCmdRequest</actionMapping>
+            <outputActionMapping>iptv/CSPRequest/ExecCmdResponse</outputActionMapping>
+        </operation>
+    </service>
+    <service name="ctmsResp">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.hmwl.c2service.iptv.CSPResponseServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.hmwl.c2service.iptv.CSPResponseServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">false</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="ResultNotify" mep="http://www.w3.org/ns/wsdl/in-out" namespace="iptv">
+            <actionMapping>iptv/CSPResponse/resultNotifyRequest</actionMapping>
+            <outputActionMapping>iptv/CSPResponse/resultNotifyResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

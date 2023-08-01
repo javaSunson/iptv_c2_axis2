@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="iptv" xmlns:impl="iptv" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:intf="iptv" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/">
+  <wsdl:types>
+    <schema targetNamespace="iptv" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns0="iptv">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="CSPResult">
+    <sequence>
+     <element name="Result" type="xsd:int"/>
+     <element name="ErrorDescription" nillable="true" type="soapenc:string"/>
+    </sequence>
+   </complexType>
+  <xsd:element name="resultNotify"><xsd:complexType><xsd:sequence xmlns:xsd="http://www.w3.org/2001/XMLSchema"><xsd:element form="unqualified" name="CSPID" nillable="true" type="xsd:string"/><xsd:element form="unqualified" name="LSPID" nillable="true" type="xsd:string"/><xsd:element form="unqualified" name="correlateID" nillable="true" type="xsd:string"/><xsd:element form="unqualified" name="cmdResult" nillable="true" type="xsd:int"/><xsd:element form="unqualified" name="resultFileURL" nillable="true" type="xsd:string"/></xsd:sequence></xsd:complexType></xsd:element><xsd:element name="resultNotifyResponse"><xsd:complexType><xsd:sequence><xsd:element form="unqualified" name="resultNotifyReturn" nillable="true" type="ns0:CSPResult"/></xsd:sequence></xsd:complexType></xsd:element></schema>
+  </wsdl:types>
+  <wsdl:message name="resultNotifyRequest">
+    <wsdl:part name="CSPID" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="LSPID" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="CorrelateID" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="CmdResult" type="xsd:int">
+    </wsdl:part>
+    <wsdl:part name="ResultFileURL" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="resultNotifyResponse">
+    <wsdl:part name="resultNotifyReturn" type="impl:CSPResult">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CSPResponse">
+    <wsdl:operation name="ResultNotify" parameterOrder="CSPID LSPID CorrelateID CmdResult ResultFileURL">
+      <wsdl:input name="resultNotifyRequest" message="impl:resultNotifyRequest">
+    </wsdl:input>
+      <wsdl:output name="resultNotifyResponse" message="impl:resultNotifyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ctmsSoapBinding" type="impl:CSPResponse">
+    <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ResultNotify">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="resultNotifyRequest">
+        <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="iptv"/>
+      </wsdl:input>
+      <wsdl:output name="resultNotifyResponse">
+        <wsdlsoap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="iptv"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CSPResponseService">
+    <wsdl:port name="ctms" binding="impl:ctmsSoapBinding">
+      <wsdlsoap:address location="http://localhost:9999/services/ctmsResp"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

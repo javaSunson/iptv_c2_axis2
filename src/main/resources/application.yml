@@ -1,0 +1,9 @@
+server:
+  port: 9999
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource   #配置当前要使用的数据源的操作类型那个
+    driver-class-name: com.mysql.cj.jdbc.Driver       #配置MySQL的驱动程序类
+    url: 'jdbc:mysql://localhost:3306/test?useUnicode=yes&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&character_set_server=utf8mb4&useSSL=false&allowPublicKeyRetrieval=true'
+    username: test
+    password: test
